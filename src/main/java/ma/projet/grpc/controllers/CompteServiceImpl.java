@@ -123,10 +123,13 @@ public class CompteServiceImpl extends CompteServiceGrpc.CompteServiceImplBase {
 
     @Override
     public void findByType(GetComptesByTypeRequest request, StreamObserver<GetComptesByTypeResponse> responseObserver) {
+        // Retrieve the requested type from the request
         TypeCompte requestedType = request.getType();
 
-        List<Compte> comptes = compteRepository.findByType(requestedType.name());
+        // Fetch comptes by type using the repository
+        List<Compte> comptes = compteRepository.findByType(requestedType); // Pass the enum directly
 
+        // Build the response
         GetComptesByTypeResponse.Builder responseBuilder = GetComptesByTypeResponse.newBuilder();
         comptes.forEach(compte -> {
             responseBuilder.addComptes(
@@ -134,14 +137,16 @@ public class CompteServiceImpl extends CompteServiceGrpc.CompteServiceImplBase {
                             .setId(compte.getId())
                             .setSolde(compte.getSolde())
                             .setDateCreation(compte.getDateCreation())
-                            .setType(requestedType)
+                            .setType(requestedType) // Use the requested type
                             .build()
             );
         });
 
+        // Send the response
         responseObserver.onNext(responseBuilder.build());
         responseObserver.onCompleted();
     }
+
 
 
 }
