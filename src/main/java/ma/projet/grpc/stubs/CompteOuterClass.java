@@ -79,6 +79,16 @@ public final class CompteOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_DeleteCompteByIdResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetComptesByTypeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetComptesByTypeRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetComptesByTypeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetComptesByTypeResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -104,17 +114,21 @@ public final class CompteOuterClass {
       "mpteRequest\"-\n\022SaveCompteResponse\022\027\n\006com" +
       "pte\030\001 \001(\0132\007.Compte\"%\n\027DeleteCompteByIdRe" +
       "quest\022\n\n\002id\030\001 \001(\t\"+\n\030DeleteCompteByIdRes" +
-      "ponse\022\017\n\007message\030\001 \001(\t*&\n\nTypeCompte\022\013\n\007" +
-      "COURANT\020\000\022\013\n\007EPARGNE\020\0012\306\002\n\rCompteService" +
-      "\022;\n\nAllComptes\022\025.GetAllComptesRequest\032\026." +
-      "GetAllComptesResponse\022;\n\nCompteById\022\025.Ge" +
-      "tCompteByIdRequest\032\026.GetCompteByIdRespon" +
-      "se\022;\n\nTotalSolde\022\025.GetTotalSoldeRequest\032" +
-      "\026.GetTotalSoldeResponse\0225\n\nSaveCompte\022\022." +
-      "SaveCompteRequest\032\023.SaveCompteResponse\022G" +
-      "\n\020DeleteCompteById\022\030.DeleteCompteByIdReq" +
-      "uest\032\031.DeleteCompteByIdResponseB\030\n\024ma.pr" +
-      "ojet.grpc.stubsP\001b\006proto3"
+      "ponse\022\017\n\007message\030\001 \001(\t\"4\n\027GetComptesByTy" +
+      "peRequest\022\031\n\004type\030\001 \001(\0162\013.TypeCompte\"4\n\030" +
+      "GetComptesByTypeResponse\022\030\n\007comptes\030\001 \003(" +
+      "\0132\007.Compte*&\n\nTypeCompte\022\013\n\007COURANT\020\000\022\013\n" +
+      "\007EPARGNE\020\0012\211\003\n\rCompteService\022;\n\nAllCompt" +
+      "es\022\025.GetAllComptesRequest\032\026.GetAllCompte" +
+      "sResponse\022;\n\nCompteById\022\025.GetCompteByIdR" +
+      "equest\032\026.GetCompteByIdResponse\022;\n\nTotalS" +
+      "olde\022\025.GetTotalSoldeRequest\032\026.GetTotalSo" +
+      "ldeResponse\0225\n\nSaveCompte\022\022.SaveCompteRe" +
+      "quest\032\023.SaveCompteResponse\022G\n\020DeleteComp" +
+      "teById\022\030.DeleteCompteByIdRequest\032\031.Delet" +
+      "eCompteByIdResponse\022A\n\nFindByType\022\030.GetC" +
+      "omptesByTypeRequest\032\031.GetComptesByTypeRe" +
+      "sponseB\030\n\024ma.projet.grpc.stubsP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -198,6 +212,18 @@ public final class CompteOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DeleteCompteByIdResponse_descriptor,
         new java.lang.String[] { "Message", });
+    internal_static_GetComptesByTypeRequest_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_GetComptesByTypeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetComptesByTypeRequest_descriptor,
+        new java.lang.String[] { "Type", });
+    internal_static_GetComptesByTypeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_GetComptesByTypeResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetComptesByTypeResponse_descriptor,
+        new java.lang.String[] { "Comptes", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

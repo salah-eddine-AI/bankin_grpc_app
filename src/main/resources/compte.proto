@@ -78,6 +78,16 @@ message DeleteCompteByIdResponse {
   string message = 1; // Message de confirmation
 }
 
+// Requête pour obtenir les comptes par type
+message GetComptesByTypeRequest {
+  TypeCompte type = 1; // Type de compte (COURANT ou EPARGNE)
+}
+
+// Réponse contenant la liste des comptes par type
+message GetComptesByTypeResponse {
+  repeated Compte comptes = 1; // Liste des comptes du type demandé
+}
+
 // Définition du service correspondant aux requêtes et mutations GraphQL
 service CompteService {
   // Équivalent de la requête allComptes
@@ -94,4 +104,7 @@ service CompteService {
 
   // Équivalent de la mutation deleteCompteById
   rpc DeleteCompteById(DeleteCompteByIdRequest) returns (DeleteCompteByIdResponse);
+
+  // Nouvelle méthode pour trouver des comptes par type
+  rpc FindByType(GetComptesByTypeRequest) returns (GetComptesByTypeResponse);
 }

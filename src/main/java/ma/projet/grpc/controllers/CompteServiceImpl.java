@@ -121,4 +121,27 @@ public class CompteServiceImpl extends CompteServiceGrpc.CompteServiceImplBase {
     }
 
 
+    @Override
+    public void findByType(GetComptesByTypeRequest request, StreamObserver<GetComptesByTypeResponse> responseObserver) {
+        TypeCompte requestedType = request.getType();
+
+        List<Compte> comptes = compteRepository.findByType(requestedType.name());
+
+        GetComptesByTypeResponse.Builder responseBuilder = GetComptesByTypeResponse.newBuilder();
+        comptes.forEach(compte -> {
+            responseBuilder.addComptes(
+                    ma.projet.grpc.stubs.Compte.newBuilder()
+                            .setId(compte.getId())
+                            .setSolde(compte.getSolde())
+                            .setDateCreation(compte.getDateCreation())
+                            .setType(requestedType)
+                            .build()
+            );
+        });
+
+        responseObserver.onNext(responseBuilder.build());
+        responseObserver.onCompleted();
+    }
+
+
 }
